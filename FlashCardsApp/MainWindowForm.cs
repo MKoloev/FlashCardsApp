@@ -28,21 +28,25 @@ namespace FlashCardsApp
 		{
 			foreach (var collection in collections)
 			{
-				int shift = 0;
 				if (collection != null)
 				{
-					collection.button = new Button()
-					{
-						Text = collection.nameCollection,
-						Location = new Point(0, shift),
-						Dock = DockStyle.Top,
-						Size = new Size(482, 90),
-						BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(239))))),
-						Font = new System.Drawing.Font("Gabriola", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-					};
-					shift += 60;
+					collection.button = CreateButtonCollection(collection.nameCollection);
 				}
 			}
+		}
+
+		//Создание кнопки для коллекции
+		private Button CreateButtonCollection(string text)
+		{
+			return new Button()
+			{
+				Text = text,
+				//Location = new Point(0, shift),
+				Dock = DockStyle.Top,
+				Size = new Size(482, 90),
+				BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(239))))),
+				Font = new System.Drawing.Font("Gabriola", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+			};
 		}
 
 		private void DisplayCollections()
@@ -54,6 +58,7 @@ namespace FlashCardsApp
 				collectionPanel.Controls.Add(collection.button);
 			}
 		}
+
 		private void ButtonOnClick(object sender, EventArgs eventArgs)
 		{
 			var button = (Button)sender;
@@ -66,12 +71,17 @@ namespace FlashCardsApp
 
 		private void collectionPanel_Paint(object sender, PaintEventArgs e)
 		{
-
+			if(collectionPanel.Controls.Count != collections.Count)
+			{
+				InitializationButton();//создание кнропок
+				DisplayCollections();//Вывод на панель
+			}
 		}
 
 		private void addCollectionButton_Click(object sender, EventArgs e)
 		{
-
+			AddingNewCollectionForm addingNewCollectionForm = new AddingNewCollectionForm(collections);
+			addingNewCollectionForm.Show();
 		}
 	}
 }

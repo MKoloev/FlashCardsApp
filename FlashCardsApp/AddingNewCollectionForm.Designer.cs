@@ -60,6 +60,7 @@ namespace FlashCardsApp
 			// 
 			this.TextAddingName.AutoSize = true;
 			this.TextAddingName.Font = new System.Drawing.Font("Gabriola", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+			this.TextAddingName.ForeColor = System.Drawing.SystemColors.Desktop;
 			this.TextAddingName.Location = new System.Drawing.Point(30, 83);
 			this.TextAddingName.Name = "TextAddingName";
 			this.TextAddingName.Size = new System.Drawing.Size(332, 55);
@@ -69,13 +70,14 @@ namespace FlashCardsApp
 			// NameCollectionTextBox
 			// 
 			this.NameCollectionTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(239)))));
-			this.NameCollectionTextBox.Font = new System.Drawing.Font("Gabriola", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-			this.NameCollectionTextBox.Location = new System.Drawing.Point(30, 141);
+			this.NameCollectionTextBox.Font = new System.Drawing.Font("Segoe UI", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+			this.NameCollectionTextBox.Location = new System.Drawing.Point(30, 150);
 			this.NameCollectionTextBox.Multiline = true;
 			this.NameCollectionTextBox.Name = "NameCollectionTextBox";
-			this.NameCollectionTextBox.Size = new System.Drawing.Size(320, 57);
+			this.NameCollectionTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
+			this.NameCollectionTextBox.Size = new System.Drawing.Size(320, 51);
 			this.NameCollectionTextBox.TabIndex = 3;
-			this.NameCollectionTextBox.TextChanged += new System.EventHandler(this.NameCollectionTextBox_TextChanged);
+			this.NameCollectionTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NameCollectionTextBox_KeyPress);
 			// 
 			// NameFormPanel
 			// 

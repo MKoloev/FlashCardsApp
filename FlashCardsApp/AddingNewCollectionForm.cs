@@ -58,9 +58,10 @@ namespace FlashCardsApp
 			this.Close();
 		}
 
-		private void NameCollectionTextBox_TextChanged(object sender, EventArgs e)
+		private void NameCollectionTextBox_KeyPress(object sender, KeyPressEventArgs e)
 		{
-
+			if(e.KeyChar == '\n' || e.KeyChar == '\r')
+				e.Handled = true;
 		}
 	}
 }

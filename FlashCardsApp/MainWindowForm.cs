@@ -23,7 +23,8 @@ namespace FlashCardsApp
 		public MainWindowForm(object newCollections)
 		{
 			InitializeComponent();
-			collections = (List < CollectionData >) newCollections;
+			//collections = (List < CollectionData >) newCollections;
+			collections = CollectionData.GetDataFromFile();
 			openWindowAddCollection = new WindowOpeningCheck();
 
 			InitializationButton();//создание кнропок
@@ -37,7 +38,7 @@ namespace FlashCardsApp
 			{
 				if (collection != null)
 				{
-					collection.button = CreateButtonCollection(collection.nameCollection);
+					collection.button = CreateButtonCollection(collection.GetNameCollection());
 				}
 			}
 		}
@@ -92,6 +93,8 @@ namespace FlashCardsApp
 			{
 				InitializationButton();//создание кнропок
 				DisplayCollections();//Вывод на панель
+				CollectionData.WriteDataToFile();
+
 				if (collectionPanel.Controls.Count >= maximumCountCollection)
 					addCollectionButton.Enabled = false;
 				else

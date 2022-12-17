@@ -75,6 +75,7 @@ namespace FlashCardsApp
 			this.NameCollectionTextBox.Name = "NameCollectionTextBox";
 			this.NameCollectionTextBox.Size = new System.Drawing.Size(320, 57);
 			this.NameCollectionTextBox.TabIndex = 3;
+			this.NameCollectionTextBox.TextChanged += new System.EventHandler(this.NameCollectionTextBox_TextChanged);
 			// 
 			// NameFormPanel
 			// 

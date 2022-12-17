@@ -7,6 +7,10 @@ using System.Windows.Forms;
 
 namespace FlashCardsApp
 {
+	class WindowOpeningCheck
+	{
+		public bool openWindow = false;
+	}
 
 	static class Program
 	{
@@ -16,7 +20,8 @@ namespace FlashCardsApp
 		[STAThread]
 		static void Main()
 		{
-			var collections = new List<CollectionData>()
+			var collections = new List<CollectionData>();
+			/*
 			{
 				new CollectionData("llll"),
 				new CollectionData("angl"),
@@ -24,7 +29,7 @@ namespace FlashCardsApp
 				new CollectionData("lnem"),
 				new CollectionData("fran"),
 				new CollectionData("ispan"),
-			};
+			};*/
 			Application.SetHighDpiMode(HighDpiMode.SystemAware);
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);

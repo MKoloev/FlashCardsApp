@@ -9,16 +9,19 @@ using System.Windows.Forms;
 namespace FlashCardsApp
 {
 	public partial class AddingNewCollectionForm : Form
-	{
-		private string NameCollextion;
+	{ 
+		private WindowOpeningCheck openWindowAddCollection;
 		List<CollectionData> collections;
 
-		public AddingNewCollectionForm(object newCollections)
+		public AddingNewCollectionForm(object newCollections, object OpenWindowAddCollection)
 		{
 			InitializeComponent();
 			this.FormBorderStyle = FormBorderStyle.FixedSingle;
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
 			collections = (List<CollectionData>)newCollections;
+			openWindowAddCollection = (WindowOpeningCheck)OpenWindowAddCollection;
+
+			NameCollectionTextBox.MaxLength = 30;
 		}
 
 		private void AddingNewCollectionForm_Load(object sender, EventArgs e)
@@ -28,6 +31,7 @@ namespace FlashCardsApp
 
 		private void CloseForm_Click(object sender, EventArgs e)
 		{
+			openWindowAddCollection.openWindow = false;
 			this.Close();
 		}
 
@@ -48,10 +52,15 @@ namespace FlashCardsApp
 
 		private void CreateСollection_Click(object sender, EventArgs e)
 		{
-			string NameCollextion = NameCollectionTextBox.Text;
-			collections.Add(new CollectionData(NameCollextion));
+			string NameColleсtion = NameCollectionTextBox.Text;
+			collections.Add(new CollectionData(NameColleсtion));
+			openWindowAddCollection.openWindow = false;
 			this.Close();
 		}
 
+		private void NameCollectionTextBox_TextChanged(object sender, EventArgs e)
+		{
+
+		}
 	}
 }

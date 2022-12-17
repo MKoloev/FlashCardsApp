@@ -10,14 +10,21 @@ namespace FlashCardsApp
 {
 	//#F2F2EF цвет коллекций
 
+
+
 	public partial class MainWindowForm : Form
 	{
+		//Открыто ли окно добавление новой коллекции
+		private WindowOpeningCheck openWindowAddCollection;
+		private int maximumCountCollection = 10;
+
 		List<CollectionData> collections;
 
 		public MainWindowForm(object newCollections)
 		{
 			InitializeComponent();
 			collections = (List < CollectionData >) newCollections;
+			openWindowAddCollection = new WindowOpeningCheck();
 
 			InitializationButton();//создание кнропок
 			DisplayCollections();//Вывод на панель
@@ -69,19 +76,27 @@ namespace FlashCardsApp
 			}
 		}
 
-		private void collectionPanel_Paint(object sender, PaintEventArgs e)
+		private void addCollectionButton_Click(object sender, EventArgs e)
 		{
-			if(collectionPanel.Controls.Count != collections.Count)
+			if (!openWindowAddCollection.openWindow)
 			{
-				InitializationButton();//создание кнропок
-				DisplayCollections();//Вывод на панель
+				openWindowAddCollection.openWindow = true;
+				AddingNewCollectionForm addingNewCollectionForm = new AddingNewCollectionForm(collections, openWindowAddCollection);
+				addingNewCollectionForm.Show();
 			}
 		}
 
-		private void addCollectionButton_Click(object sender, EventArgs e)
+		private void backgroundPanel_Paint(object sender, PaintEventArgs e)
 		{
-			AddingNewCollectionForm addingNewCollectionForm = new AddingNewCollectionForm(collections);
-			addingNewCollectionForm.Show();
+			if (collectionPanel.Controls.Count != collections.Count)
+			{
+				InitializationButton();//создание кнропок
+				DisplayCollections();//Вывод на панель
+				if (collectionPanel.Controls.Count >= maximumCountCollection)
+					addCollectionButton.Enabled = false;
+				else
+					addCollectionButton.Enabled = true;
+			}
 		}
 	}
 }

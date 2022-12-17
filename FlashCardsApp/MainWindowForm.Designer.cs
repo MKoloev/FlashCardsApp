@@ -48,7 +48,6 @@ namespace FlashCardsApp
 			this.collectionPanel.Name = "collectionPanel";
 			this.collectionPanel.Size = new System.Drawing.Size(487, 477);
 			this.collectionPanel.TabIndex = 0;
-			this.collectionPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.collectionPanel_Paint);
 			// 
 			// addCollectionButton
 			// 
@@ -74,6 +73,7 @@ namespace FlashCardsApp
 			this.backgroundPanel.Name = "backgroundPanel";
 			this.backgroundPanel.Size = new System.Drawing.Size(487, 603);
 			this.backgroundPanel.TabIndex = 0;
+			this.backgroundPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.backgroundPanel_Paint);
 			// 
 			// MainWindowForm
 			// 

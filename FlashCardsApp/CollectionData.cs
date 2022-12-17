@@ -33,6 +33,17 @@ namespace FlashCardsApp
 			return nameCollection;
 		}
 
+		public static CollectionData GetCollection(Button button)
+		{
+			foreach(var collection in collections)
+			{
+				if (collection.button == button)
+					return collection;
+			}
+
+			return null;
+		}
+
 		//Получить из файла все коллекции 
 		public static List<CollectionData> GetDataFromFile()
 		{

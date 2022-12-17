@@ -69,11 +69,21 @@ namespace FlashCardsApp
 
 		private void ButtonOnClick(object sender, EventArgs eventArgs)
 		{
+			
 			var button = (Button)sender;
+			/*
 			if (button != null)
 			{
 				MessageBox.Show("Прощай " + button.Name);
 				button.Dispose();
+			}*/
+			CollectionData collection = CollectionData.GetCollection(button);
+
+			if(collection != null)
+			{
+				this.Visible = false;
+				WindowCollectionForm windowCollection = new WindowCollectionForm(collection);
+				windowCollection.Show();
 			}
 		}
 

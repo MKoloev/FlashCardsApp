@@ -67,6 +67,7 @@ namespace FlashCardsApp
 			}
 		}
 
+		//Кнопки коллекции
 		private void ButtonOnClick(object sender, EventArgs eventArgs)
 		{
 			
@@ -89,6 +90,7 @@ namespace FlashCardsApp
 			}
 		}
 
+		//Добавить новую коллекцию
 		private void addCollectionButton_Click(object sender, EventArgs e)
 		{
 			if (!openWindowAddCollection.openWindow)
@@ -99,6 +101,7 @@ namespace FlashCardsApp
 			}
 		}
 
+		//Фон Окна
 		private void backgroundPanel_Paint(object sender, PaintEventArgs e)
 		{
 			if (collectionPanel.Controls.Count != collections.Count)

@@ -15,6 +15,9 @@ namespace FlashCardsApp
 		//Для возврашения в MainWindowForm
 		Method method;
 
+		//Открыто ли окно добавление новой коллекции
+		private WindowOpeningCheck openWindowAddFlashCard;
+
 		public WindowCollectionForm(object collection, Method method)
 		{
 			InitializeComponent();
@@ -23,6 +26,8 @@ namespace FlashCardsApp
 			this.nameCollection.Text = this.collection.GetNameCollection();
 
 			this.method = method;
+
+			openWindowAddFlashCard = new WindowOpeningCheck();
 		}
 
 		private void ComeBackButton_Click(object sender, EventArgs e)
@@ -64,6 +69,16 @@ namespace FlashCardsApp
 		private void NameCollection_KeyPress(object sender, KeyPressEventArgs e)
 		{
 			e.Handled = true;
+		}
+
+		private void addFlashCard_Click(object sender, EventArgs e)
+		{
+			if (!openWindowAddFlashCard.openWindow)
+			{
+				openWindowAddFlashCard.openWindow = true;
+				AddingNewFlashCardForm newFlashCardForm = new AddingNewFlashCardForm(collection, openWindowAddFlashCard);
+				newFlashCardForm.Show();
+			}
 		}
 	}
 }

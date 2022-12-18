@@ -80,6 +80,7 @@ namespace FlashCardsApp
 			this.addFlashCard.TabIndex = 6;
 			this.addFlashCard.Text = "Добавить новую флеш карту";
 			this.addFlashCard.UseVisualStyleBackColor = false;
+			this.addFlashCard.Click += new System.EventHandler(this.addFlashCard_Click);
 			// 
 			// startLearning
 			// 

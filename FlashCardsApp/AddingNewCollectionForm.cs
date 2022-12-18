@@ -53,8 +53,10 @@ namespace FlashCardsApp
 		private void CreateСollection_Click(object sender, EventArgs e)
 		{
 			string NameColleсtion = NameCollectionTextBox.Text;
+
 			collections.Add(new CollectionData(NameColleсtion));
 			openWindowAddCollection.openWindow = false;
+
 			this.Close();
 		}
 

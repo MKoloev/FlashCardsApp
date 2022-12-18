@@ -12,9 +12,9 @@ namespace FlashCardsApp
 		private static string dataFileName = "DataCollections.txt";
 
 		private string nameCollection;
-		List<FlashCardData> firstGroup;
-		List<FlashCardData> secondGroup;
-		List<FlashCardData> thirdGroup;
+		public List<FlashCardData> firstGroup;
+		public List<FlashCardData> secondGroup;
+		public List<FlashCardData> thirdGroup;
 
 		public Button button;
 
@@ -69,12 +69,13 @@ namespace FlashCardsApp
 				string[] textLines = text.Split('\n');
 				try
 				{
+					if(text.Length > 0)
 					foreach (var line in textLines)
 					{
 						var PartOfTheCollection = line.Split('\0');
 						var newCollection = new CollectionData(PartOfTheCollection[0]);
-
-						GroupingFlashCards(newCollection, PartOfTheCollection[1]);
+						if(PartOfTheCollection.Length > 1)
+							GroupingFlashCards(newCollection, PartOfTheCollection[1]);
 
 						collections.Add(newCollection);
 					}

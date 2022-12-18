@@ -99,8 +99,8 @@ namespace FlashCardsApp
 			var groups = groupFlashCards.Split(((char)1));
 
 			WriteAFlashCardToTheGroup(newCollection.firstGroup, groups[0]);
-			WriteAFlashCardToTheGroup(newCollection.secondGroup, groups[0]);
-			WriteAFlashCardToTheGroup(newCollection.thirdGroup, groups[0]);
+			WriteAFlashCardToTheGroup(newCollection.secondGroup, groups[1]);
+			WriteAFlashCardToTheGroup(newCollection.thirdGroup, groups[2]);
 		}
 
 		//Записать в группам флеш карты

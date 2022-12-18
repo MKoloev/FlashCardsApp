@@ -56,12 +56,14 @@ namespace FlashCardsApp
 			this.collectionPanel.Name = "collectionPanel";
 			this.collectionPanel.Size = new System.Drawing.Size(582, 553);
 			this.collectionPanel.TabIndex = 0;
+			this.collectionPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.collectionPanel_Paint);
 			this.collectionPanel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.collectionPanel_MouseDown);
 			this.collectionPanel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.collectionPanel_MouseMove);
 			// 
 			// flashCardsPanel
 			// 
 			this.flashCardsPanel.Anchor = System.Windows.Forms.AnchorStyles.None;
+			this.flashCardsPanel.AutoScroll = true;
 			this.flashCardsPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(211)))), ((int)(((byte)(166)))));
 			this.flashCardsPanel.Location = new System.Drawing.Point(0, 42);
 			this.flashCardsPanel.Name = "flashCardsPanel";
@@ -106,7 +108,6 @@ namespace FlashCardsApp
 			this.nameCollection.Size = new System.Drawing.Size(400, 40);
 			this.nameCollection.TabIndex = 4;
 			this.nameCollection.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-			this.nameCollection.TextChanged += new System.EventHandler(this.NameCollection_TextChanged);
 			this.nameCollection.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NameCollection_KeyPress);
 			// 
 			// deleteCollection

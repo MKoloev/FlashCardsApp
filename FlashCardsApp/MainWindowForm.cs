@@ -9,8 +9,7 @@ using System.Windows.Forms;
 namespace FlashCardsApp
 {
 	//#F2F2EF цвет коллекций
-
-
+	public delegate void Method();
 
 	public partial class MainWindowForm : Form
 	{
@@ -20,7 +19,7 @@ namespace FlashCardsApp
 
 		List<CollectionData> collections;
 
-		public MainWindowForm(object newCollections)
+		public MainWindowForm()
 		{
 			InitializeComponent();
 			//collections = (List < CollectionData >) newCollections;
@@ -57,6 +56,7 @@ namespace FlashCardsApp
 			};
 		}
 
+		//Добовление кнопок коллекций на панель
 		private void DisplayCollections()
 		{
 			collectionPanel.Controls.Clear();
@@ -82,8 +82,10 @@ namespace FlashCardsApp
 			if(collection != null)
 			{
 				this.Visible = false;
-				WindowCollectionForm windowCollection = new WindowCollectionForm(collection);
+				Method method = ContinueWork;
+				WindowCollectionForm windowCollection = new WindowCollectionForm(collection, method);
 				windowCollection.Show();
+				//this.Close();
 			}
 		}
 
@@ -111,5 +113,15 @@ namespace FlashCardsApp
 					addCollectionButton.Enabled = true;
 			}
 		}
+
+		//Продолжить работу после закрытия коллекции
+		public void ContinueWork()
+		{
+			InitializationButton();//создание кнропок
+			DisplayCollections();//Вывод на панель
+			CollectionData.WriteDataToFile();
+			this.Visible = true;
+		}
+
 	}
 }

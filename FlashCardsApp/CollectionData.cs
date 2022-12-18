@@ -33,6 +33,20 @@ namespace FlashCardsApp
 			return nameCollection;
 		}
 
+		//Удалить коллекцию по кнопке
+		public static void DeleteCollection(Button button)
+		{
+			for (int i = 0; i < collections.Count; i++)
+			{
+				if (collections[i].button == button)
+				{
+					collections.RemoveAt(i);
+					break;
+				}
+			}
+		}
+
+		//Найти коллекцию по кнопке
 		public static CollectionData GetCollection(Button button)
 		{
 			foreach(var collection in collections)
@@ -106,8 +120,8 @@ namespace FlashCardsApp
 			string text = "";
 			foreach (var collection in collections)
 				text += ConcatenateCollectionsIntOAString(collection);
-
-			text = text.Remove(text.Length - 1);
+			if(text.Length > 0)
+				text = text.Remove(text.Length - 1);
 
 			StreamWriter sr = new StreamWriter(dataFileName, false);
 			sr.Write(text);

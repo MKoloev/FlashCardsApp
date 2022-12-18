@@ -20,20 +20,10 @@ namespace FlashCardsApp
 		[STAThread]
 		static void Main()
 		{
-			var collections = new List<CollectionData>();
-			/*
-			{
-				new CollectionData("llll"),
-				new CollectionData("angl"),
-				new CollectionData("rus"),
-				new CollectionData("lnem"),
-				new CollectionData("fran"),
-				new CollectionData("ispan"),
-			};*/
 			Application.SetHighDpiMode(HighDpiMode.SystemAware);
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
-			Application.Run(new MainWindowForm(collections));
+			Application.Run(new MainWindowForm());
 		}
 	}
 }

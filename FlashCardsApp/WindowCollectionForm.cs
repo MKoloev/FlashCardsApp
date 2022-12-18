@@ -12,22 +12,31 @@ namespace FlashCardsApp
 	{
 		CollectionData collection;
 
-		public WindowCollectionForm(object collection)
+		//Для возврашения в MainWindowForm
+		Method method;
+
+		public WindowCollectionForm(object collection, Method method)
 		{
 			InitializeComponent();
 
 			this.collection = (CollectionData)collection;
 			this.nameCollection.Text = this.collection.GetNameCollection();
+
+			this.method = method;
 		}
 
 		private void ComeBackButton_Click(object sender, EventArgs e)
 		{
-
+			//MainWindowForm newMainWindowForm = new MainWindowForm();
+			method();
+			this.Close();
 		}
 
 		private void deleteCollection_Click(object sender, EventArgs e)
 		{
-
+			CollectionData.DeleteCollection(collection.button);
+			method();
+			this.Close();
 		}
 
 

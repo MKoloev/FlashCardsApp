@@ -96,6 +96,7 @@ namespace FlashCardsApp
 			this.startLearning.TabIndex = 5;
 			this.startLearning.Text = "Начать обучение";
 			this.startLearning.UseVisualStyleBackColor = false;
+			this.startLearning.Click += new System.EventHandler(this.startLearning_Click);
 			// 
 			// nameCollection
 			// 

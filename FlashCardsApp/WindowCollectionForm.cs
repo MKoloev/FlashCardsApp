@@ -186,5 +186,11 @@ namespace FlashCardsApp
 			else
 				addFlashCard.Enabled = true;
 		}
+
+		private void startLearning_Click(object sender, EventArgs e)
+		{
+			LearningWindowForm learningWindowForm = new LearningWindowForm();
+			learningWindowForm.Show();
+		}
 	}
 }

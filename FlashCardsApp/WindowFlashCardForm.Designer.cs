@@ -30,7 +30,7 @@ namespace FlashCardsApp
 		private void InitializeComponent()
 		{
 			this.backgroundPanel = new System.Windows.Forms.Panel();
-			this.zagolovok = new System.Windows.Forms.Label();
+			this.header = new System.Windows.Forms.Label();
 			this.closeWindow = new System.Windows.Forms.Button();
 			this.deleteFlashCard = new System.Windows.Forms.Button();
 			this.label1 = new System.Windows.Forms.Label();
@@ -43,7 +43,7 @@ namespace FlashCardsApp
 			// backgroundPanel
 			// 
 			this.backgroundPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(146)))), ((int)(((byte)(66)))));
-			this.backgroundPanel.Controls.Add(this.zagolovok);
+			this.backgroundPanel.Controls.Add(this.header);
 			this.backgroundPanel.Controls.Add(this.closeWindow);
 			this.backgroundPanel.Controls.Add(this.deleteFlashCard);
 			this.backgroundPanel.Controls.Add(this.label1);
@@ -58,16 +58,16 @@ namespace FlashCardsApp
 			this.backgroundPanel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.backgroundPanel_MouseDown);
 			this.backgroundPanel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.backgroundPanel_MouseMove);
 			// 
-			// zagolovok
+			// header
 			// 
-			this.zagolovok.AutoSize = true;
-			this.zagolovok.Font = new System.Drawing.Font("Gabriola", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-			this.zagolovok.ForeColor = System.Drawing.SystemColors.Desktop;
-			this.zagolovok.Location = new System.Drawing.Point(176, 0);
-			this.zagolovok.Name = "zagolovok";
-			this.zagolovok.Size = new System.Drawing.Size(152, 55);
-			this.zagolovok.TabIndex = 13;
-			this.zagolovok.Text = "Флеш карта";
+			this.header.AutoSize = true;
+			this.header.Font = new System.Drawing.Font("Gabriola", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+			this.header.ForeColor = System.Drawing.SystemColors.Desktop;
+			this.header.Location = new System.Drawing.Point(176, 0);
+			this.header.Name = "header";
+			this.header.Size = new System.Drawing.Size(152, 55);
+			this.header.TabIndex = 13;
+			this.header.Text = "Флеш карта";
 			// 
 			// closeWindow
 			// 
@@ -163,6 +163,6 @@ namespace FlashCardsApp
 		private System.Windows.Forms.TextBox questionTextBox;
 		private System.Windows.Forms.Button deleteFlashCard;
 		private System.Windows.Forms.Button closeWindow;
-		private System.Windows.Forms.Label zagolovok;
+		private System.Windows.Forms.Label header;
 	}
 }

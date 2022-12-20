@@ -8,6 +8,8 @@ namespace FlashCardsApp
 {
 	class CollectionData
 	{
+		private static int LearningStage = 0;
+
 		private static List<CollectionData> collections;
 		private static string dataFileName = "DataCollections.txt";
 
@@ -37,6 +39,29 @@ namespace FlashCardsApp
 		public void SetNameCollection( string name)
 		{
 			nameCollection = name;
+		}
+
+		//Получить номер этапы обучения
+		public static int GetLearningStage()
+		{
+			return LearningStage;
+		}
+
+		public static void SetLearningStage(int stage)
+		{
+			LearningStage = stage;
+		}
+
+		public static int SetNuberGroupLearning()
+		{
+			int numberGroup = 1;
+			if (LearningStage % 8 == 0) numberGroup = 3;
+			else if (LearningStage % 3 == 0) numberGroup = 2;
+
+			if (LearningStage > 7) LearningStage = 1;
+			else LearningStage++;
+
+			return numberGroup;
 		}
 
 		//Удалить коллекцию по кнопке
@@ -109,15 +134,22 @@ namespace FlashCardsApp
 				string[] textLines = text.Split('\n');
 				try
 				{
-					if(text.Length > 0)
-					foreach (var line in textLines)
+					if (text.Length > 0)
 					{
-						var PartOfTheCollection = line.Split('\0');
-						var newCollection = new CollectionData(PartOfTheCollection[0]);
-						if(PartOfTheCollection.Length > 1)
-							GroupingFlashCards(newCollection, PartOfTheCollection[1]);
 
-						collections.Add(newCollection);
+						SetLearningStage(int.Parse(textLines[0]));
+
+						for (int i = 1; i < textLines.Length; i++)
+						{
+							string line = textLines[i];
+							//char o = line[1];
+							var PartOfTheCollection = line.Split('\0');
+							var newCollection = new CollectionData(PartOfTheCollection[0]);
+							if (PartOfTheCollection.Length > 1)
+								GroupingFlashCards(newCollection, PartOfTheCollection[1]);
+
+							collections.Add(newCollection);
+						}
 					}
 				}
 				catch
@@ -143,7 +175,7 @@ namespace FlashCardsApp
 			WriteAFlashCardToTheGroup(newCollection.thirdGroup, groups[2]);
 		}
 
-		//Записать в группам флеш карты
+		//Записать по группам флеш карты
 		private static void WriteAFlashCardToTheGroup(List<FlashCardData> group, string groupFlashCards)
 		{
 			var flashCards = groupFlashCards.Split(((char)2));
@@ -158,11 +190,11 @@ namespace FlashCardsApp
 		//записать в файл все коллекции
 		public static void WriteDataToFile()
 		{
-			string text = "";
+			string text = GetLearningStage().ToString() + "\n";
 			foreach (var collection in collections)
 				text += ConcatenateCollectionsIntOAString(collection);
-			if(text.Length > 0)
-				text = text.Remove(text.Length - 1);
+			//if(text.Length > 1)
+			text = text.Remove(text.Length - 1);
 
 			StreamWriter sr = new StreamWriter(dataFileName, false);
 			sr.Write(text);

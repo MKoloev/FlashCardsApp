@@ -65,5 +65,6 @@ namespace FlashCardsApp
 			if(e.KeyChar == '\n' || e.KeyChar == '\r')
 				e.Handled = true;
 		}
+
 	}
 }

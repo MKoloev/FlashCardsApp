@@ -115,6 +115,7 @@ namespace FlashCardsApp
 			this.responsetTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
 			this.responsetTextBox.Size = new System.Drawing.Size(495, 98);
 			this.responsetTextBox.TabIndex = 5;
+			this.responsetTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.responsetTextBox_KeyPress);
 			// 
 			// TextAddingName
 			// 
@@ -137,6 +138,7 @@ namespace FlashCardsApp
 			this.questionTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
 			this.questionTextBox.Size = new System.Drawing.Size(495, 98);
 			this.questionTextBox.TabIndex = 3;
+			this.questionTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.questionTextBox_KeyPress);
 			// 
 			// NameFormPanel
 			// 

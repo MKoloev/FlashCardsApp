@@ -64,6 +64,40 @@ namespace FlashCardsApp
 			return null;
 		}
 
+		//Найти флеш карту по кнопке
+		public static FlashCardData GetFlashCard(CollectionData collection, Button button)
+		{
+			var flashCard = GetFromGroupFlashCard(collection.firstGroup, button);
+			if (flashCard != null) return flashCard;
+			flashCard = GetFromGroupFlashCard(collection.secondGroup, button);
+			if (flashCard != null) return flashCard;
+			return GetFromGroupFlashCard(collection.thirdGroup, button);
+		}
+
+		private static FlashCardData GetFromGroupFlashCard(List<FlashCardData> group, Button button)
+		{
+			foreach(var flashCard in group)
+			{
+				if (flashCard.button == button)
+					return flashCard;
+			}
+
+			return null;
+		}
+
+		//удалить флеш карту
+		public static void  DeleteFlashCard(CollectionData collection, FlashCardData flashCard)
+		{
+			if (collection != null && flashCard != null)
+			{
+				collection.firstGroup.Remove(flashCard);
+				collection.secondGroup.Remove(flashCard);
+				collection.thirdGroup.Remove(flashCard);
+			}
+			else
+				throw new AccessViolationException("Коллекция или флеш карта равно яnull");
+		}
+
 		//Получить из файла все коллекции 
 		public static List<CollectionData> GetDataFromFile()
 		{

@@ -15,8 +15,10 @@ namespace FlashCardsApp
 		//Для возврашения в MainWindowForm
 		Method method;
 
-		//Открыто ли окно добавление новой коллекции
+		//Открыто ли окно добавление новой флеш карты
 		private WindowOpeningCheck openWindowAddFlashCard;
+		//Открыто ли окно флеш карты
+		private WindowOpeningCheck openWindowFlashCard;
 
 		//максимальное количество флеш карт
 		private int maximumCountFlashCards = 10;
@@ -31,6 +33,7 @@ namespace FlashCardsApp
 			this.method = method;
 
 			openWindowAddFlashCard = new WindowOpeningCheck();
+			openWindowFlashCard = new WindowOpeningCheck();
 
 			InitializationButton();//создание кнропок
 			DisplayFlashCards();//Вывод на панель
@@ -96,6 +99,15 @@ namespace FlashCardsApp
 		//Кнопки флеш карт
 		private void ButtonOnClick(object sender, EventArgs eventArgs)
 		{
+			var button = (Button)sender;
+
+			FlashCardData flashCard = CollectionData.GetFlashCard(collection, button);
+
+			if (flashCard != null)
+			{
+				WindowFlashCardForm windowFlashCardForm = new WindowFlashCardForm(collection, flashCard);
+				windowFlashCardForm.Show();
+			}
 		}
 
 		//Возврашение на главное окно

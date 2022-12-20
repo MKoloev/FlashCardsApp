@@ -60,5 +60,17 @@ namespace FlashCardsApp
 		{
 			lastPoint = new Point(e.X, e.Y);
 		}
+
+		private void questionTextBox_KeyPress(object sender, KeyPressEventArgs e)
+		{
+			if (e.KeyChar == '\n' || e.KeyChar == '\r')
+				e.Handled = true;
+		}
+
+		private void responsetTextBox_KeyPress(object sender, KeyPressEventArgs e)
+		{
+			if (e.KeyChar == '\n' || e.KeyChar == '\r')
+				e.Handled = true;
+		}
 	}
 }

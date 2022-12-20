@@ -101,6 +101,7 @@ namespace FlashCardsApp
 		//Возврашение на главное окно
 		private void ComeBackButton_Click(object sender, EventArgs e)
 		{
+			collection.SetNameCollection(this.nameCollection.Text);
 			method();
 			this.Close();
 		}
@@ -132,7 +133,8 @@ namespace FlashCardsApp
 
 		private void NameCollection_KeyPress(object sender, KeyPressEventArgs e)
 		{
-			e.Handled = true;
+			if (e.KeyChar == '\n' || e.KeyChar == '\r')
+				e.Handled = true;
 		}
 
 		//Добавление флеш карт

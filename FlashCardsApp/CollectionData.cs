@@ -33,6 +33,12 @@ namespace FlashCardsApp
 			return nameCollection;
 		}
 
+		//ввести название коллекции
+		public void SetNameCollection( string name)
+		{
+			nameCollection = name;
+		}
+
 		//Удалить коллекцию по кнопке
 		public static void DeleteCollection(Button button)
 		{

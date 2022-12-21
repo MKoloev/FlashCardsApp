@@ -21,7 +21,7 @@ namespace FlashCardsApp
 		private WindowOpeningCheck openWindowFlashCard;
 
 		//максимальное количество флеш карт
-		private int maximumCountFlashCards = 10;
+		private int maximumCountFlashCards = 15;
 
 		public WindowCollectionForm(object collection, Method method)
 		{

@@ -59,8 +59,6 @@ namespace FlashCardsApp
 			this.backgroundPanel.Name = "backgroundPanel";
 			this.backgroundPanel.Size = new System.Drawing.Size(540, 415);
 			this.backgroundPanel.TabIndex = 0;
-			this.backgroundPanel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.backgroundPanel_MouseDown);
-			this.backgroundPanel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.backgroundPanel_MouseMove);
 			// 
 			// dontKnowTheAnswerButton
 			// 
@@ -73,6 +71,7 @@ namespace FlashCardsApp
 			this.dontKnowTheAnswerButton.TabIndex = 21;
 			this.dontKnowTheAnswerButton.Text = "Не знаю";
 			this.dontKnowTheAnswerButton.UseVisualStyleBackColor = false;
+			this.dontKnowTheAnswerButton.Click += new System.EventHandler(this.dontKnowTheAnswerButton_Click);
 			// 
 			// knowTheAnswerButton
 			// 
@@ -98,6 +97,7 @@ namespace FlashCardsApp
 			this.showAnswerButton.TabIndex = 19;
 			this.showAnswerButton.Text = "Показать";
 			this.showAnswerButton.UseVisualStyleBackColor = false;
+			this.showAnswerButton.Click += new System.EventHandler(this.showAnswerButton_Click);
 			// 
 			// label1
 			// 

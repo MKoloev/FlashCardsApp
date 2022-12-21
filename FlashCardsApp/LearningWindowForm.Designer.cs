@@ -85,6 +85,7 @@ namespace FlashCardsApp
 			this.knowTheAnswerButton.TabIndex = 20;
 			this.knowTheAnswerButton.Text = "Знаю";
 			this.knowTheAnswerButton.UseVisualStyleBackColor = false;
+			this.knowTheAnswerButton.Click += new System.EventHandler(this.knowTheAnswerButton_Click);
 			// 
 			// showAnswerButton
 			// 

@@ -187,10 +187,30 @@ namespace FlashCardsApp
 				addFlashCard.Enabled = true;
 		}
 
+		//Начать обучение
 		private void startLearning_Click(object sender, EventArgs e)
 		{
-			LearningWindowForm learningWindowForm = new LearningWindowForm();
-			learningWindowForm.Show();
+			var countFlashcards = collection.firstGroup.Count +
+				collection.secondGroup.Count +
+				collection.thirdGroup.Count;
+
+			if (countFlashcards > 0)
+			{
+				this.Visible = false;
+				Method method = ContinueWork;
+				LearningWindowForm learningWindowForm = new LearningWindowForm(collection, method);
+				learningWindowForm.Show();
+			}
+		}
+
+
+		//Продолжить работу после конца бучения
+		public void ContinueWork()
+		{
+			InitializationButton();//создание кнопок
+			DisplayFlashCards();//Вывод на панель
+			CollectionData.WriteDataToFile();
+			this.Visible = true;
 		}
 	}
 }
